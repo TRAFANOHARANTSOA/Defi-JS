@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>Consigne : Faire chuter la boule</p>
+
+<canvas id="myCanvas" width="480" height="320"></canvas>
+
+<script>
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+var x = canvas.width/2; // Définition de la position en X
+var y = 0; // Définition de la position en Y
+var dx = 0; // déplacement en X
+var dy = 2; // déplacement en Y
+
+function dessineBall() {
+    ctx.beginPath();
+    ctx.arc(x, y, 10, 0, Math.PI*2);
+    ctx.fillStyle = "#0095DD";
+    ctx.fill();
+    ctx.closePath();
+}
+function chute() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // Fonction servant à nettoyer le canvas.
+    dessineBall();
+    x += dx;
+    y += dy;
+}
+
+//dessineBall();
+setInterval(chute, 10); // La boucle pour faire tomber la boule
+// Toutes les 10 millisecondes le canevas est effacé et la boule est dessinée.
+</script>
+
+</body>
+</html>

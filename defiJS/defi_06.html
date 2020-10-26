@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>Consigne : Stopper la chute lorsque la boule touche le bas du canvas</p>
+
+<canvas id="myCanvas" width="480" height="320"></canvas>
+
+<script>
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+var ballRadius=10;
+var x = canvas.width/2;
+var y = 0;
+var dx = 0; // déplacement en X
+var dy = 2; // déplacement en Y
+
+function dessineBall() {
+    ctx.beginPath();
+    ctx.arc(x, y, ballRadius, 0, Math.PI*2);
+    ctx.fillStyle = "#0095DD";
+    ctx.fill();
+    ctx.closePath();
+}
+function chute() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    dessineBall();
+    x += dx;
+    y += dy;
+
+    if(y + dy > canvas.height-ballRadius)
+        dy = 0;
+}
+
+
+//dessineBall();
+setInterval(chute, 10);
+</script>
+
+</body>
+</html>
