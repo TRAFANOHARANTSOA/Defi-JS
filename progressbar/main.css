@@ -1,22 +1,9 @@
-
+.container {
+  width: 320px;
+  background-color: #DCDCDC;
+  padding:0.0em 1px;
+}
 
 .progress{
   background-color:#B32440;
-}
-
-#loadingAnimation {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  border-radius: 50%;
-  height: 12vh;
-  border: 16px solid #f3f3f3;
-}
-#redborder {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  border-radius: 50%;
-  height: 12vh;
-  border-top: 16px solid #d31f43;
 }

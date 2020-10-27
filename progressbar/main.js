@@ -1,15 +1,16 @@
-window.onload = function(){
-  const progressBar = document.getElementById('redborder');
+document.getElementById('btn').addEventListener('click', function() {
+  const progressBar = document.getElementById('progressBar');
   let progress = 0;
   let stopProgress = setInterval(function (){
     if (progress >= 100) {
       clearInterval(stopProgress);
-      displayContent.style.display = "block";
+      progressBar.style.display = "none";
     } else {
       progress++;
-      progressBar.style.border = progress + '%';
+      progressBar.style.width = progress + '%';
+      progressBar.style.display = "block";
+      document.getElementById('interval').innerHTML = progress + "%";
       console.log(progress);
     }
-  }, 10);
-
-}
+  }, 50);
+});
